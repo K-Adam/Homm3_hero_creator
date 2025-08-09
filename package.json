@@ -1,0 +1,41 @@
+{
+  "name": "homm3_hero_creator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "node src/postinstall.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.0.0",
+    "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.3",
+    "@reduxjs/toolkit": "^2.8.2",
+    "bootstrap": "^5.3.7",
+    "browser-fs-access": "^0.38.0",
+    "clsx": "^2.1.1",
+    "file-saver": "^2.0.5",
+    "next": "15.4.5",
+    "react": "19.1.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "19.1.0",
+    "react-redux": "^9.2.0",
+    "symlink-dir": "^6.0.5",
+    "usehooks-ts": "^3.1.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@svgr/webpack": "^8.1.0",
+    "@types/file-saver": "^2.0.7",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.5",
+    "typescript": "^5"
+  }
+}

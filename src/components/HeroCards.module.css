@@ -1,0 +1,16 @@
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+
+@media print {
+  .cards {
+    justify-content: center;
+  }
+}
+
+@media screen {
+  .cards {
+    justify-content: space-around;
+  }
+}

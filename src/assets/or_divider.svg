@@ -1,0 +1,15 @@
+<svg
+  version="1.1"
+  viewBox="0 0 150 14"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:svg="http://www.w3.org/2000/svg"
+>
+  <text
+        x="75" y="50%" text-anchor="middle" dominant-baseline="central"
+        fill="currentColor" font-family="Times New Roman" font-size="20"
+  >OR</text>
+
+  <polygon points="100,5.5 100,8.5 150,7" fill="currentColor" />
+
+  <polygon points="0,7 50,5.5 50,8.5" fill="currentColor" />
+</svg>

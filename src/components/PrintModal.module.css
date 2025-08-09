@@ -1,0 +1,64 @@
+.heroList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-auto-rows: 80px;
+  gap: 4px;
+
+  .item {
+    border: 2px solid #adadad;
+    border-radius: 12px;
+    padding: 4px;
+    transition: border 0.2s ease;
+    cursor: pointer;
+
+    &button {
+      font-size: 26pt;
+      background-color: #e7e7e7;
+      transition: background-color 0.2s ease;
+
+      .removeIcon {
+        opacity: 0;
+        backdrop-filter: none;
+        transition: opacity 0.2s ease;
+        position: relative;
+        z-index: 2;
+      }
+
+      &:hover {
+        background-color: #d3d3d3;
+
+        .removeIcon {
+          opacity: 1;
+        }
+
+        .image::before {
+          backdrop-filter: contrast(10%) brightness(150%);
+        }
+      }
+
+      .image {
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &::before {
+          border-radius: inherit;
+          inset: 0;
+          position: absolute;
+          content: " ";
+          backdrop-filter: none;
+          transition: backdrop-filter 0.2s ease;
+        }
+
+        svg {
+          align-self: center;
+        }
+      }
+    }
+  }
+}

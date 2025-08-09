@@ -1,0 +1,3 @@
+[submodule "external/Homm3BG"]
+	path = external/Homm3BG
+	url = https://github.com/Heegu-sama/Homm3BG

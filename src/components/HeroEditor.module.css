@@ -1,0 +1,26 @@
+@media screen and (min-width: 1200px) {
+  .editor {
+    width: 90%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .properties {
+    flex: 1;
+  }
+
+  .preview {
+    width: 750px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .editor {
+    margin: 1rem;
+  }
+}

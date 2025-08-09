@@ -1,0 +1,42 @@
+<svg
+  version="1.1"
+  viewBox="0 0 1300 500"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:svg="http://www.w3.org/2000/svg"
+>
+  <g>
+    <path 
+      d="M150,200
+         A50,50 0 1,0 150,300
+         A50,50 0 1,0 150,200
+         M150,225
+         A25,25 0 1,1 150,275
+         A25,25 0 1,1 150,225Z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+
+    <g transform="rotate(-30 150 250)">
+      <polygon points="130,210 170,210 150,-35" fill="currentColor" />
+      <polygon points="130,290 170,290 150,535" fill="currentColor" />
+    </g>
+  </g>
+
+  <g>
+    <path 
+      d="M1150,200
+         A50,50 0 1,0 1150,300
+         A50,50 0 1,0 1150,200
+         M1150,225
+         A25,25 0 1,1 1150,275
+         A25,25 0 1,1 1150,225Z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+
+    <g transform="rotate(30 1150 250)">
+      <polygon points="1130,210 1170,210 1150,-35" fill="currentColor" />
+      <polygon points="1130,290 1170,290 1150,535" fill="currentColor" />
+    </g>
+  </g>
+</svg>
