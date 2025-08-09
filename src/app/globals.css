@@ -113,56 +113,56 @@ svg.textIcon {
 /* Town specific styles */
 
 .castle {
-  --border-image: url("/border/blue.png");
-  --name-background: url("/background/leather/blue.png");
+  --border-image: url("@/assets/border/blue.png");
+  --name-background: url("@/assets/background/leather/blue.png");
 }
 
 .conflux {
-  --border-image: url("/border/pink.png");
-  --name-background: url("/background/leather/pink.png");
+  --border-image: url("@/assets/border/pink.png");
+  --name-background: url("@/assets/background/leather/pink.png");
 }
 
 .cove {
-  --border-image: url("/border/teal.png");
-  --name-background: url("/background/leather/teal.png");
+  --border-image: url("@/assets/border/teal.png");
+  --name-background: url("@/assets/background/leather/teal.png");
 }
 
 .dungeon {
-  --border-image: url("/border/purple.png");
-  --name-background: url("/background/leather/purple.png");
+  --border-image: url("@/assets/border/purple.png");
+  --name-background: url("@/assets/background/leather/purple.png");
 }
 
 .factory {
-  --border-image: url("/border/orange.png");
-  --name-background: url("/background/leather/orange.png");
+  --border-image: url("@/assets/border/orange.png");
+  --name-background: url("@/assets/background/leather/orange.png");
 }
 
 .fortress {
-  --border-image: url("/border/green.png");
-  --name-background: url("/background/leather/green.png");
+  --border-image: url("@/assets/border/green.png");
+  --name-background: url("@/assets/background/leather/green.png");
 }
 
 .inferno {
-  --border-image: url("/border/red.png");
-  --name-background: url("/background/leather/red.png");
+  --border-image: url("@/assets/border/red.png");
+  --name-background: url("@/assets/background/leather/red.png");
 }
 
 .necropolis {
-  --border-image: url("/border/gray.png");
-  --name-background: url("/background/leather/gray.png");
+  --border-image: url("@/assets/border/gray.png");
+  --name-background: url("@/assets/background/leather/gray.png");
 }
 
 .rampart {
-  --border-image: url("/border/lime.png");
-  --name-background: url("/background/leather/lime.png");
+  --border-image: url("@/assets/border/lime.png");
+  --name-background: url("@/assets/background/leather/lime.png");
 }
 
 .stronghold {
-  --border-image: url("/border/tan.png");
-  --name-background: url("/background/leather/tan.png");
+  --border-image: url("@/assets/border/tan.png");
+  --name-background: url("@/assets/background/leather/tan.png");
 }
 
 .tower {
-  --border-image: url("/border/white.png");
-  --name-background: url("/background/leather/white.png");
+  --border-image: url("@/assets/border/white.png");
+  --name-background: url("@/assets/background/leather/white.png");
 }

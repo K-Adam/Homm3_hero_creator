@@ -84,7 +84,7 @@
     bottom: -1mm;
     width: 11mm;
     height: 11mm;
-    background-image: url("/border/bottom_left.png");
+    background-image: url("@/assets/border/bottom_left.png");
     background-size: cover;
     pointer-events: none;
     z-index: 1;
@@ -112,7 +112,7 @@
 }
 
 .stats {
-  background-image: url("/background/leather.png");
+  background-image: url("@/assets/background/leather.png");
   background-size: 150%;
   background-position: center;
 
@@ -176,7 +176,7 @@
 }
 
 .level {
-  background-image: url("/background/gray.png");
+  background-image: url("@/assets/background/gray.png");
   background-size: cover;
   background-position: center;
 }

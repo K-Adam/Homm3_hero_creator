@@ -23,51 +23,51 @@ export interface Hero {
 export const portraits: Portrait[] = [
   {
     name: "Adela",
-    path: "/heroes/adela.png",
+    path: "heroes/adela.png",
   },
   {
     name: "Aeris",
-    path: "/heroes/aeris.png",
+    path: "heroes/aeris.png",
   },
   {
     name: "Aine",
-    path: "/heroes/aine.png",
+    path: "heroes/aine.png",
   },
   {
     name: "Christian",
-    path: "/heroes/christian.png",
+    path: "heroes/christian.png",
   },
   {
     name: "Coronius",
-    path: "/heroes/coronius.png",
+    path: "heroes/coronius.png",
   },
   {
     name: "Dessa",
-    path: "/heroes/dessa.png",
+    path: "heroes/dessa.png",
   },
   {
     name: "Fafner",
-    path: "/heroes/fafner.png",
+    path: "heroes/fafner.png",
   },
   {
     name: "Crag Hack",
-    path: "/heroes/hack.png",
+    path: "heroes/hack.png",
   },
   {
     name: "Isra",
-    path: "/heroes/isra.png",
+    path: "heroes/isra.png",
   },
   {
     name: "Lorelei",
-    path: "/heroes/lorelei.png",
+    path: "heroes/lorelei.png",
   },
   {
     name: "Moandor",
-    path: "/heroes/moandor.png",
+    path: "heroes/moandor.png",
   },
   {
     name: "Shakti",
-    path: "/heroes/shakti.png",
+    path: "heroes/shakti.png",
   },
 ];
 

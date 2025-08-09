@@ -13,26 +13,26 @@ export interface Specialty {
 export const monsterSpecialties: Specialty[] = [
   {
     name: "Evil Eyes",
-    path: "/monsters/evil_eyes.png"
+    path: "monsters/evil_eyes.png"
   },
   {
     name: "Harpies",
-    path: "/monsters/harpies.png"
+    path: "monsters/harpies.png"
   },
   {
     name: "Liches",
-    path: "/monsters/liches.png"
+    path: "monsters/liches.png"
   },
   {
     name: "Nagas",
-    path: "/monsters/nagas.png"
+    path: "monsters/nagas.png"
   },
   {
     name: "Pegasi",
-    path: "/monsters/pegasi.png"
+    path: "monsters/pegasi.png"
   },
   {
     name: "Troglodytes",
-    path: "/monsters/troglodytes.png"
+    path: "monsters/troglodytes.png"
   }
 ];

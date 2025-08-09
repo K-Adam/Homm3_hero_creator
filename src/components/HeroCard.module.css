@@ -37,7 +37,7 @@
 .content {
   grid-area: 1 / 1 / 2 / 3;
 
-  background-image: url("/background/leather.png");
+  background-image: url("@/assets/background/leather.png");
   background-size: 200%;
   background-position: center;
 
@@ -124,7 +124,7 @@
       border-radius: 50%;
       padding-left: var(--level-padding);
 
-      background-image: url("/background/gray.png");
+      background-image: url("@/assets/background/gray.png");
       background-position: center;
       background-size: 300%;
 
@@ -141,7 +141,7 @@
 
 .card {
   &.specialty1 {
-    --border-image: url("/border/light_gray.png");
+    --border-image: url("@/assets/border/light_gray.png");
 
     --border-light: #a8a8a8;
     --border-dark: #515151;
@@ -151,13 +151,13 @@
   }
 
   &.specialty4 {
-    --border-image: url("/border/red.png");
+    --border-image: url("@/assets/border/red.png");
     --level-text: "IV";
     --level-padding: 0.5mm;
   }
 
   &.specialty6 {
-    --border-image: url("/border/dark_purple.png");
+    --border-image: url("@/assets/border/dark_purple.png");
     --level-text: "VI";
     --level-padding: 0;
   }

@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/initiative.png" type="image/png" />
+        <link rel="icon" href="images/initiative.png" type="image/png" />
       </head>
       <body>
         <StoreProvider>{children}</StoreProvider>

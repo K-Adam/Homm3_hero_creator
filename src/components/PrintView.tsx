@@ -107,9 +107,9 @@ export default function PrintView() {
                         )}
                         key={hi}
                       >
-                        <img alt="backface" src="/card_back.png" />
-                        <img alt="backface" src="/card_back.png" />
-                        <img alt="backface" src="/card_back.png" />
+                        <img alt="backface" src="card_back.png" />
+                        <img alt="backface" src="card_back.png" />
+                        <img alt="backface" src="card_back.png" />
                       </div>
                     ) : (
                       <HeroCards hero={card} key={hi} />
