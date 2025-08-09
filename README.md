@@ -1,3 +1,9 @@
+# <center>Heroes of Might and Magic III: The Board Game<br/>Hero Creator</center>
+
+The application available at: https://k-adam.github.io/Homm3_hero_creator
+
+## About
+
 This project is a personal, fan-made tool created for board game
 owners who want to enhance their experience with custom heroes —
 including those found in the PC game but missing from the board game.
