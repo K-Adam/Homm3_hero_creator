@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Modal, Button, Tabs, Tab } from "react-bootstrap";
+import { Modal, Button, Tabs, Tab, Form } from "react-bootstrap";
 import clsx from "clsx";
 import styles from "./ReplaceEntityModal.module.css";
 import { selectImageAsBase64 } from "@/lib/selectImageAsBase64";
@@ -79,18 +79,31 @@ export default function ReplaceEntityModal({
           </Tab>
 
           <Tab eventKey={EntityType.Custom} title="Custom">
-            <Button
-              onClick={async () => {
-                const path = await selectImageAsBase64();
+            <Form>
+              <Form.Group controlId="heroNameInput" className="mb-3">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={selected.name}
+                  onChange={(e) =>
+                    setSelected({ ...selected, name: e.target.value })
+                  }
+                  placeholder={`Enter ${title} name`}
+                />
+              </Form.Group>
+              <Button
+                onClick={async () => {
+                  const path = await selectImageAsBase64();
 
-                setSelected({ name: "custom", path });
-              }}
-            >
-              <FontAwesomeIcon icon={faFileImage} /> Upload image
-            </Button>
-            <div>
-              <img src={selected.path} className={styles.preview} />
-            </div>
+                  setSelected({ name: "Custom", path });
+                }}
+              >
+                <FontAwesomeIcon icon={faFileImage} /> Upload image
+              </Button>
+              <div>
+                <img src={selected.path} className={styles.preview} />
+              </div>
+            </Form>
           </Tab>
         </Tabs>
       </Modal.Body>
