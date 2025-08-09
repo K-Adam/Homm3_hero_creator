@@ -22,7 +22,7 @@ import BuildingMaterialIcon from "@/assets/glyphs/building_materials.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-const iconMap: Record<string, JSX.Element> = {
+export const iconMap: Record<string, JSX.Element> = {
   ":instant:": <InstantIcon aria-label="Instant" className="textIcon" />,
   ":ongoing:": <OngoingIcon aria-label="Ongoing" className="textIcon" />,
   ":attack:": <AttackIcon aria-label="Attack" className="textIcon" />,

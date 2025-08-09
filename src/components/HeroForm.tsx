@@ -12,6 +12,8 @@ import { useState } from "react";
 import { Button, Col, Form, Row, Tab, Tabs } from "react-bootstrap";
 import ReplaceEntityModal from "./ReplaceEntityModal";
 import { abilities, Ability } from "@/models/ability";
+import { iconMap } from "@/lib/textToComponent";
+import styles from "./HeroForm.module.css";
 
 export default function HeroForm({
   hero,
@@ -160,7 +162,7 @@ export default function HeroForm({
           <Form.Group className="mb-3" controlId="specialtyOneContent">
             <Form.Control
               as="textarea"
-              rows={3}
+              rows={4}
               placeholder="Enter specialty content"
               value={hero.specialtyContent[SpecialtyLevel.One]}
               onChange={(e) =>
@@ -177,7 +179,7 @@ export default function HeroForm({
           <Form.Group className="mb-3" controlId="specialtyFourContent">
             <Form.Control
               as="textarea"
-              rows={3}
+              rows={4}
               placeholder="Enter specialty content"
               value={hero.specialtyContent[SpecialtyLevel.Four]}
               onChange={(e) =>
@@ -194,7 +196,7 @@ export default function HeroForm({
           <Form.Group className="mb-3" controlId="specialtySixContent">
             <Form.Control
               as="textarea"
-              rows={3}
+              rows={4}
               placeholder="Enter specialty content"
               value={hero.specialtyContent[SpecialtyLevel.Six]}
               onChange={(e) =>
@@ -207,6 +209,18 @@ export default function HeroForm({
           </Form.Group>
         </Tab>
       </Tabs>
+
+      <div>Available icons</div>
+
+      <div className={styles.iconContainer}>
+        {Object.entries(iconMap)
+          .filter(([key, _icon]) => key !== "\n")
+          .map(([key, icon]) => (
+            <span key={key} title={key} className={styles.icon}>
+              {icon}
+            </span>
+          ))}
+      </div>
     </Form>
   );
 }
