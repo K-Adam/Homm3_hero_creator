@@ -1,6 +1,6 @@
 # <center>Heroes of Might and Magic III: The Board Game<br/>Hero Creator</center>
 
-The application available at: https://k-adam.github.io/Homm3_hero_creator
+The application is available at: https://k-adam.github.io/Homm3_hero_creator
 
 ## About
 
