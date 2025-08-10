@@ -41,7 +41,13 @@ export default function ReplaceEntityModal({
   const [selected, setSelected] = useState<Entity>(entityList[0]);
 
   return (
-    <Modal show={show} onHide={onHide} backdrop="static" centered>
+    <Modal
+      show={show}
+      onHide={onHide}
+      backdrop="static"
+      centered
+      fullscreen="sm-down"
+    >
       <Modal.Header closeButton>
         <Modal.Title>Replace {title}</Modal.Title>
       </Modal.Header>

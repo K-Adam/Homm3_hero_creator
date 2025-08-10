@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Hero, initialHero } from "@/models/hero";
 import HeroCards from "./HeroCards";
 import {
+  Alert,
   Button,
   Card,
   CardBody,
@@ -46,6 +47,11 @@ export default function HeroEditor() {
           </h2>
         </CardHeader>
         <CardBody>
+          <Alert variant="warning" className="d-block d-md-none mb-0">
+            This app works best on a desktop and may not display correctly on
+            smaller screens.
+          </Alert>
+
           <HeroForm hero={hero} setHero={(v) => setHero(v)} />
         </CardBody>
         <CardFooter>
@@ -86,12 +92,14 @@ export default function HeroEditor() {
             <FontAwesomeIcon icon={faMagnifyingGlass} /> Preview
           </h2>
         </CardHeader>
-        <CardBody>
-          <div className="d-flex justify-content-center">
-            <HeroBoard hero={hero} />
+        <CardBody className={styles.previewBody}>
+          <div className={styles.previewContainer}>
+            <div className="d-flex justify-content-center">
+              <HeroBoard hero={hero} />
+            </div>
+            <br />
+            <HeroCards hero={hero} />
           </div>
-          <br />
-          <HeroCards hero={hero} />
         </CardBody>
       </Card>
     </div>

@@ -102,32 +102,33 @@ export default function HeroForm({
         </Col>
       </Row>
 
-      <Row className="my-3 text-center">
-        <Col>
+      <Row className="my-3 text-center g-2">
+        <Col xs={12} md={4}>
           <Button
             variant="outline-secondary"
+            className="w-100"
             onClick={() => setShowPortraitModal(true)}
           >
             Replace portrait
           </Button>
-
           <ReplaceEntityModal
             title="portrait"
             show={showPortraitModal}
             onHide={() => setShowPortraitModal(false)}
             entityList={portraits}
             onSelect={(portrait) => setPortrait(portrait)}
-            hideName={true}
+            hideName
           />
         </Col>
-        <Col>
+
+        <Col xs={12} md={4}>
           <Button
             variant="outline-secondary"
+            className="w-100"
             onClick={() => setShowAbilityModal(true)}
           >
             Replace ability
           </Button>
-
           <ReplaceEntityModal
             title="ability"
             show={showAbilityModal}
@@ -136,14 +137,15 @@ export default function HeroForm({
             onSelect={(ability) => setAbility(ability)}
           />
         </Col>
-        <Col>
+
+        <Col xs={12} md={4}>
           <Button
             variant="outline-secondary"
+            className="w-100"
             onClick={() => setShowSpecialtyModal(true)}
           >
             Replace specialty
           </Button>
-
           <ReplaceEntityModal
             title="specialty"
             show={showSpecialtyModal}

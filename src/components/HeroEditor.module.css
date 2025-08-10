@@ -23,4 +23,16 @@
   .editor {
     margin: 1rem;
   }
+
+  .preview {
+    margin-top: 1rem;
+  }
+
+  .previewBody {
+    overflow-x: scroll;
+
+    .previewContainer {
+      min-width: 134mm;
+    }
+  }
 }

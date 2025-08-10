@@ -10,7 +10,13 @@ export default function WelcomeModal({
   onHide: () => void;
 }) {
   return (
-    <Modal show={show} onHide={onHide} backdrop="static" centered>
+    <Modal
+      show={show}
+      onHide={onHide}
+      backdrop="static"
+      centered
+      fullscreen="sm-down"
+    >
       <Modal.Header closeButton>
         <Modal.Title>Welcome</Modal.Title>
       </Modal.Header>
