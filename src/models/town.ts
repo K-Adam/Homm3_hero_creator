@@ -32,7 +32,7 @@ export const classStats: Record<TownType, Record<HeroType, Statistics>> = {
     [HeroType.Magic]: { attack: 1, defense: 0, spellPower: 2, knowledge: 2, name: "Cleric" },
   },
   [TownType.Conflux]: {
-    [HeroType.Magic]: { attack: 0, defense: 0, spellPower: 3, knowledge: 3, name: "Elementalist" },
+    [HeroType.Magic]: { attack: 0, defense: 0, spellPower: 2, knowledge: 3, name: "Elementalist" },
     [HeroType.Might]: { attack: 3, defense: 1, spellPower: 1, knowledge: 1, name: "Planeswalker" },
   },
   [TownType.Cove]: {
