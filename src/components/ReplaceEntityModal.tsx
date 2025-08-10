@@ -28,12 +28,14 @@ export default function ReplaceEntityModal({
   onHide,
   entityList = [],
   onSelect,
+  hideName,
 }: {
   title: string;
   show: boolean;
   onHide: () => void;
   entityList: Entity[];
   onSelect: (entity: Entity) => void;
+  hideName?: boolean;
 }) {
   const [key, setKey] = useState<EntityType>(EntityType.Predefined);
   const [selected, setSelected] = useState<Entity>(entityList[0]);
@@ -80,7 +82,10 @@ export default function ReplaceEntityModal({
 
           <Tab eventKey={EntityType.Custom} title="Custom">
             <Form>
-              <Form.Group controlId="heroNameInput" className="mb-3">
+              <Form.Group
+                controlId="heroNameInput"
+                className={clsx("mb-3", { "d-none": !!hideName })}
+              >
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"

@@ -117,6 +117,7 @@ export default function HeroForm({
             onHide={() => setShowPortraitModal(false)}
             entityList={portraits}
             onSelect={(portrait) => setPortrait(portrait)}
+            hideName={true}
           />
         </Col>
         <Col>
