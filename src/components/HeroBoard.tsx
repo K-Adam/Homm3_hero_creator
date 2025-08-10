@@ -12,7 +12,7 @@ import LevelOne from "@/assets/glyphs/level1.svg";
 import LevelFour from "@/assets/glyphs/level4.svg";
 import LevelSix from "@/assets/glyphs/level6.svg";
 import ExpertIcon from "@/assets/glyphs/expert.svg";
-import LevelDirectionIcon from "@/assets/level_direction.svg";
+import LevelDirectionIcon from "@/assets/glyphsInternal/level_direction.svg";
 
 export default function HeroBoard({ hero }: { hero: Hero }) {
   return (
