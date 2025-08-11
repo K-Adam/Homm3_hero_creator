@@ -29,6 +29,20 @@ import UnitGroundIcon from "@/assets/glyphsInternal/unit_ground.svg";
 import UnitFlyingIcon from "@/assets/glyphsInternal/unit_flying.svg";
 import UnitRangedIcon from "@/assets/glyphs/unit_ranged.svg";
 
+import TreasureIcon from "@/assets/glyphs/treasure.svg";
+import ResourceIcon from "@/assets/glyphs/resource_die.svg";
+
+import NecroIcon from "@/assets/glyphs/necro-yellow.svg";
+
+import ExpertIcon from "@/assets/glyphs/expert.svg";
+import HandLimitIcon from "@/assets/glyphs/hand.svg";
+import ExperienceIcon from "@/assets/glyphs/experience.svg";
+import ReinforceIcon from "@/assets/glyphs/reinforce.svg";
+
+import UnitAttackIcon from "@/assets/glyphs/unit_attack-yellow.svg";
+import UnitRetaliateIcon from "@/assets/glyphs/unit_retaliate.svg";
+import UnitSpecialIcon from "@/assets/glyphs/unit_other.svg";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -82,6 +96,30 @@ export const iconMap: Record<string, JSX.Element> = {
   ),
   ":unit_ranged:": (
     <UnitRangedIcon aria-label="Ranged unit" className="textIcon" />
+  ),
+
+  ":treasure:": <TreasureIcon aria-label="Treasure" className="textIcon" />,
+  ":resource:": <ResourceIcon aria-label="Resource" className="textIcon" />,
+
+  ":necro:": <NecroIcon aria-label="Necro" className="textIcon" />,
+
+  ":expert:": <ExpertIcon aria-label="Expert" className="textIcon" />,
+  ":hand_limit:": (
+    <HandLimitIcon aria-label="Hand limit" className="textIcon" />
+  ),
+  ":experience:": (
+    <ExperienceIcon aria-label="Experience" className="textIcon" />
+  ),
+  ":reinforce:": <ReinforceIcon aria-label="Reinforce" className="textIcon" />,
+
+  ":unit_attack:": (
+    <UnitAttackIcon aria-label="Unit attack" className="textIcon" />
+  ),
+  ":unit_retaliate:": (
+    <UnitRetaliateIcon aria-label="Unit retaliate" className="textIcon" />
+  ),
+  ":unit_special:": (
+    <UnitSpecialIcon aria-label="Unit Special acion" className="textIcon" />
   ),
 
   ":bronze:": <FontAwesomeIcon icon={faStar} className="bronze" />,
