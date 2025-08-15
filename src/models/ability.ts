@@ -6,6 +6,10 @@ export interface Ability {
 // prettier-ignore
 export const abilities: Ability[] = [
   {
+    name: "Air Magic",
+    path: "abilities/air_magic.png"
+  },
+  {
     name: "Archery",
     path: "abilities/archery.png"
   },
@@ -22,8 +26,16 @@ export const abilities: Ability[] = [
     path: "abilities/eagle_eye.png"
   },
   {
+    name: "Earth Magic",
+    path: "abilities/earth_magic.png"
+  },
+  {
     name: "Estates",
     path: "abilities/estates.png"
+  },
+  {
+    name: "Fire Magic",
+    path: "abilities/fire_magic.png"
   },
   {
     name: "First Aid",
@@ -64,6 +76,10 @@ export const abilities: Ability[] = [
   {
     name: "Sorcery",
     path: "abilities/sorcery.png"
+  },
+  {
+    name: "Water Magic",
+    path: "abilities/water_magic.png"
   },
   {
     name: "Wisdom",

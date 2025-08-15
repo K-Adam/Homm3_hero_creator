@@ -18,6 +18,7 @@ import MovementIcon from "@/assets/glyphs/movement.svg";
 import InitiativeIcon from "@/assets/glyphs/initiative.svg";
 import ActivationIcon from "@/assets/glyphs/activation.svg";
 import MoraleIcon from "@/assets/glyphs/morale_positive.svg";
+import MoraleNegativeIcon from "@/assets/glyphs/morale_negative.svg";
 import DamageIcon from "@/assets/glyphs/damage-yellow.svg";
 import ParalysisIcon from "@/assets/glyphs/paralysis.svg";
 
@@ -73,6 +74,13 @@ export const iconMap: Record<string, JSX.Element> = {
     <ActivationIcon aria-label="Activation" className="textIcon" />
   ),
   ":morale:": <MoraleIcon aria-label="Morale" className="textIcon" />,
+  ":morale_negative:": (
+    <MoraleNegativeIcon
+      aria-label="Negative Morale"
+      className="textIcon"
+      style={{ color: "#a8a8a7" }}
+    />
+  ),
   ":damage:": <DamageIcon aria-label="Damage" className="textIcon" />,
   ":paralysis:": <ParalysisIcon aria-label="Paralysis" className="textIcon" />,
 

@@ -73,11 +73,11 @@ export const portraits: Portrait[] = [
 
 export const initialHero = {
   name: "Hero Name",
-  town: TownType.Castle,
+  town: TownType.Dungeon,
   type: HeroType.Might,
   portrait: portraits[0],
-  statistics: classStats[TownType.Castle][HeroType.Might],
-  ability: abilities[0],
+  statistics: classStats[TownType.Dungeon][HeroType.Might],
+  ability: abilities[1],
   specialty: monsterSpecialties[0],
   specialtyContent: specialtyContentExample,
 };
