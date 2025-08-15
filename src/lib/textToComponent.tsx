@@ -139,21 +139,185 @@ export const iconMap: Record<string, JSX.Element> = {
       }}
     />
   ),
-  "\n": <br />,
 };
 
-export function textToComponent(text: string): React.ReactNode {
-  const regex = /((?::[a-z_]+:)|\n)/g;
-  const parts = text.split(regex);
+type IconToken = keyof typeof iconMap;
 
-  return (
-    <>
-      {parts.map((part, index) => {
-        if (iconMap[part]) {
-          return React.cloneElement(iconMap[part], { key: index });
-        }
-        return <span key={index}>{part}</span>;
-      })}
-    </>
-  );
+interface UnitStatProps {
+  attack: number;
+  defense: number;
+  health: number;
+  speed: number;
+}
+
+interface SpellProps {
+  power: [number, number, number];
+  effect: [React.ReactNode, React.ReactNode, React.ReactNode];
+  effectIcon?: React.ReactNode;
+}
+
+export interface TextToComponentProps {
+  renderUnitStats?: (props: UnitStatProps) => React.ReactNode;
+  renderSpell?: (props: SpellProps) => React.ReactNode;
+}
+
+export function textToComponent(
+  text: string,
+  props: TextToComponentProps = {}
+): React.ReactNode {
+  const re = /(\*\*|:[a-z_]+:|:stats{[\s;0-9]*}:|:spell{.*?(?=}:)}:|\n\#|\n)/g;
+  let last = 0;
+  let result: React.ReactNode = null;
+
+  const append = (node: React.ReactNode) => {
+    result =
+      result === null ? (
+        node
+      ) : (
+        <>
+          {result}
+          {node}
+        </>
+      );
+  };
+
+  if (text[0] === "#") {
+    text = "\n" + text;
+  }
+
+  const matches = Array.from(text.matchAll(re));
+  for (const m of matches) {
+    const tok = m[1];
+    const tokStart = m.index!;
+    const tokEnd = tokStart + tok.length;
+
+    // If we've already advanced past this (due to consuming bold/heading), skip it
+    if (tokStart < last) continue;
+
+    // Append any plain text before this token
+    if (tokStart > last) {
+      append(text.slice(last, tokStart));
+    }
+
+    if (tok === "**") {
+      const start = tokEnd; // after opening **
+      const close = text.indexOf("**", start);
+      if (close === -1) {
+        append("**");
+        last = start; // match original behavior when there's no closing **
+      } else {
+        append(
+          <strong>{textToComponent(text.slice(start, close), props)}</strong>
+        );
+        last = close + 2; // jump past closing **
+      }
+    } else if (tok === "\n#") {
+      const start = tokEnd;
+      const close = text.indexOf("\n", start);
+      if (close === -1) {
+        append(<h4>{text.slice(start)}</h4>);
+        last = text.length;
+      } else {
+        append(<h4>{text.slice(start, close)}</h4>);
+        last = close + 1; // include trailing newline
+      }
+    } else if (tok === "\n") {
+      append(<br />);
+      last = tokEnd;
+    } else if (tok.startsWith(":stats{")) {
+      const stats = tok
+        .slice(7, -2)
+        .split(";")
+        .map((s) => parseInt(s.trim()));
+
+      if (stats.length !== 4) {
+        append(
+          <span className="text-danger">Stats must have 4 components</span>
+        );
+      }
+
+      append(
+        props.renderUnitStats ? (
+          props.renderUnitStats({
+            attack: stats[0],
+            defense: stats[1],
+            health: stats[2],
+            speed: stats[3],
+          })
+        ) : (
+          <span className="text-danger">No renderUnitStats available</span>
+        )
+      );
+      last = tokEnd;
+    } else if (tok.startsWith(":spell{")) {
+      const spellParts = tok
+        .slice(7, -2)
+        .trim()
+        .slice(1, -1)
+        .split(/\}\s*;\s*\{/)
+        .map((s) =>
+          s
+            .trim()
+            .split(";")
+            .map((p) => p.trim())
+        );
+
+      if (spellParts.length === 3) {
+        const [power, effect, effectIcon] = [
+          spellParts[0].map((p) => parseInt(p)) as [number, number, number],
+          spellParts[1].map((p) => textToComponent(p, props)) as [
+            React.ReactNode,
+            React.ReactNode,
+            React.ReactNode
+          ],
+          spellParts[2][0],
+        ];
+        append(
+          props.renderSpell ? (
+            props.renderSpell({
+              power,
+              effect,
+              effectIcon: iconMap[effectIcon as IconToken],
+            })
+          ) : (
+            <span className="text-danger">No renderSpell available</span>
+          )
+        );
+      } else if (spellParts.length === 2) {
+        const [power, effect] = [
+          spellParts[0].map((p) => parseInt(p)) as [number, number, number],
+          spellParts[1].map((p) => textToComponent(p, props)) as [
+            React.ReactNode,
+            React.ReactNode,
+            React.ReactNode
+          ],
+        ];
+        append(
+          props.renderSpell ? (
+            props.renderSpell({ power, effect })
+          ) : (
+            <span className="text-danger">No renderSpell available</span>
+          )
+        );
+      } else {
+        append(
+          <span className="text-danger">Spell must have 2 or 3 components</span>
+        );
+      }
+      last = tokEnd;
+    } else if ((tok as IconToken) in iconMap) {
+      append(iconMap[tok as IconToken]);
+      last = tokEnd;
+    } else {
+      append(tok);
+      last = tokEnd;
+    }
+  }
+
+  // Trailing text after the last token
+  if (last < text.length) {
+    append(text.slice(last));
+  }
+
+  return result ?? null;
 }

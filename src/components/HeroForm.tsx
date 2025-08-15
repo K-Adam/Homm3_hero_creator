@@ -216,13 +216,11 @@ export default function HeroForm({
       <div>Available icons</div>
 
       <div className={styles.iconContainer}>
-        {Object.entries(iconMap)
-          .filter(([key, _icon]) => key !== "\n")
-          .map(([key, icon]) => (
-            <span key={key} title={key} className={styles.icon}>
-              {icon}
-            </span>
-          ))}
+        {Object.entries(iconMap).map(([key, icon]) => (
+          <span key={key} title={key} className={styles.icon}>
+            {icon}
+          </span>
+        ))}
       </div>
     </Form>
   );

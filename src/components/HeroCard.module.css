@@ -45,14 +45,28 @@
   text-align: center;
 
   h3 {
-    margin: 1mm 0 3mm 0;
+    margin: 1mm 0 2.25mm 0;
     color: var(--yellow);
     font-size: 12pt;
+  }
+
+  h4 {
+    margin: 1.5mm 0 1mm 0;
+    color: var(--yellow);
+    font-size: 8pt;
+    font-weight: normal;
   }
 
   .description {
     padding: 0 2mm;
     font-size: 7pt;
+    letter-spacing: 0.025em;
+    line-height: 1.2em;
+    height: 23.5mm;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img {
       height: 1.2em;
@@ -160,5 +174,135 @@
     --border-image: url("@/assets/border/dark_purple.png");
     --level-text: "VI";
     --level-padding: 0;
+  }
+}
+
+.unitStats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5mm;
+
+  > div {
+    margin-top: 0.3em;
+    margin-bottom: 0.2em;
+    font-size: 10pt;
+    font-weight: bold;
+    vertical-align: middle;
+
+    img.unitIcon {
+      top: 0;
+      margin: 0;
+      margin-top: -0.3em;
+      margin-right: 1mm;
+      width: 5mm;
+      height: auto;
+      filter: drop-shadow(0 0.25mm 0.5mm black);
+      display: inline-block;
+    }
+
+    &:nth-child(2) img.unitIcon {
+      transform: scale(1.1);
+    }
+
+    &:nth-child(4) img.unitIcon {
+      transform: scale(1.25);
+    }
+  }
+}
+
+.spellContainer {
+  width: 100%;
+  height: 14mm;
+
+  margin-top: 3mm;
+  margin-bottom: 3mm;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .spellOptions {
+    height: 100%;
+    position: relative;
+
+    .spellOptionsIcon {
+      height: 100%;
+      width: auto;
+      color: var(--yellow);
+    }
+
+    &.flip {
+      .spellOptionsIcon {
+        transform: scaleX(-1);
+      }
+
+      .spellPowerIcon {
+        left: 0;
+        transform: translateY(-60%) translateX(10%);
+      }
+
+      .powerCount {
+        left: 13.5mm;
+      }
+    }
+
+    &:not(.flip) {
+      .spellPowerIcon {
+        right: 0;
+        transform: translateY(-50%) translateX(-10%) scale(0.8, 0.8);
+      }
+
+      .powerCount {
+        right: 13.3mm;
+      }
+    }
+
+    .spellPowerIcon {
+      position: absolute;
+      color: var(--yellow);
+      top: 50%;
+
+      svg {
+        width: 8mm;
+        height: auto;
+        filter: drop-shadow(0 0.25mm 0.5mm black);
+      }
+    }
+
+    .powerCount {
+      position: absolute;
+      top: 0.75mm;
+      bottom: 0.75mm;
+      width: 3.75mm;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .arrow {
+    width: 6mm;
+    text-align: center;
+    svg {
+      width: 4mm;
+      height: auto;
+      filter: drop-shadow(0 0.25mm 0.5mm black);
+    }
+  }
+
+  .spellOptionsText {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0.75mm;
+    padding-bottom: 0.75mm;
+    padding-left: 2mm;
   }
 }
