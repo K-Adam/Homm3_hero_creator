@@ -1,6 +1,6 @@
 "use client";
 
-import { Hero, Portrait, portraits } from "@/models/hero";
+import { CustomClass, Hero, Portrait, portraits } from "@/models/hero";
 import {
   monsterSpecialties,
   Specialty,
@@ -14,6 +14,7 @@ import ReplaceEntityModal from "./ReplaceEntityModal";
 import { abilities, Ability } from "@/models/ability";
 import { iconMap } from "@/lib/textToComponent";
 import styles from "./HeroForm.module.css";
+import { townColors } from "@/models/color";
 
 export default function HeroForm({
   hero,
@@ -54,6 +55,30 @@ export default function HeroForm({
 
   const setSpecialty = (specialty: Specialty) => {
     setHero({ ...hero, specialty });
+  };
+
+  const toggleCustomClass = (checked: boolean) => {
+    if (checked) {
+      setHero({
+        ...hero,
+        customClass: {
+          statistics: { ...hero.statistics },
+          color: townColors[hero.town].color,
+          background:
+            townColors[hero.town].background ?? townColors[hero.town].color,
+        },
+      });
+    } else {
+      const { customClass, ...rest } = hero as Hero;
+      setHero({ ...rest });
+    }
+  };
+
+  const updateCustomClass = (customClass: CustomClass) => {
+    setHero({
+      ...hero,
+      customClass,
+    });
   };
 
   return (
@@ -102,6 +127,153 @@ export default function HeroForm({
         </Col>
       </Row>
 
+      {/* Customize toggle */}
+      <Form.Group controlId="customizeClass" className="mb-3">
+        <Form.Check
+          type="switch"
+          label="Customize class"
+          checked={!!hero.customClass}
+          onChange={(e) => toggleCustomClass(e.target.checked)}
+        />
+      </Form.Group>
+
+      {/* Color pickers */}
+      {hero.customClass ? (
+        <>
+          <Form.Group controlId="classNameInput" className="mb-3">
+            <Form.Label>Class name</Form.Label>
+            <Form.Control
+              type="text"
+              value={hero.customClass.statistics.name}
+              onChange={(e) =>
+                updateCustomClass({
+                  ...(hero.customClass as CustomClass),
+                  statistics: {
+                    ...(hero.customClass as CustomClass).statistics,
+                    name: e.target.value,
+                  },
+                })
+              }
+              placeholder="Enter class name"
+            />
+          </Form.Group>
+          <Form.Group controlId="customStats" className="mb-3">
+            <Form.Label>Statistics</Form.Label>
+            <Row>
+              <Col xs={3}>
+                <Form.Control
+                  type="number"
+                  className="w-100"
+                  min={0}
+                  max={9}
+                  value={hero.customClass.statistics.attack}
+                  onChange={(e) =>
+                    updateCustomClass({
+                      ...(hero.customClass as CustomClass),
+                      statistics: {
+                        ...(hero.customClass as CustomClass).statistics,
+                        attack: Number(e.currentTarget.value),
+                      },
+                    })
+                  }
+                />
+              </Col>
+              <Col xs={3}>
+                <Form.Control
+                  type="number"
+                  className="w-100"
+                  min={0}
+                  max={9}
+                  value={hero.customClass.statistics.defense}
+                  onChange={(e) =>
+                    updateCustomClass({
+                      ...(hero.customClass as CustomClass),
+                      statistics: {
+                        ...(hero.customClass as CustomClass).statistics,
+                        defense: Number(e.currentTarget.value),
+                      },
+                    })
+                  }
+                />
+              </Col>
+              <Col xs={3}>
+                <Form.Control
+                  type="number"
+                  className="w-100"
+                  min={0}
+                  max={9}
+                  value={hero.customClass.statistics.spellPower}
+                  onChange={(e) =>
+                    updateCustomClass({
+                      ...(hero.customClass as CustomClass),
+                      statistics: {
+                        ...(hero.customClass as CustomClass).statistics,
+                        spellPower: Number(e.currentTarget.value),
+                      },
+                    })
+                  }
+                />
+              </Col>
+              <Col xs={3}>
+                <Form.Control
+                  type="number"
+                  className="w-100"
+                  min={0}
+                  max={9}
+                  value={hero.customClass.statistics.knowledge}
+                  onChange={(e) =>
+                    updateCustomClass({
+                      ...(hero.customClass as CustomClass),
+                      statistics: {
+                        ...(hero.customClass as CustomClass).statistics,
+                        knowledge: Number(e.currentTarget.value),
+                      },
+                    })
+                  }
+                />
+              </Col>
+            </Row>
+          </Form.Group>
+          <Row className="mb-3">
+            <Col xs={6}>
+              <Form.Group controlId="customColor">
+                <Form.Label>Color</Form.Label>
+                <Form.Control
+                  type="color"
+                  className="w-100"
+                  value={hero.customClass.color}
+                  onChange={(e) =>
+                    updateCustomClass({
+                      ...(hero.customClass as CustomClass),
+                      color: e.target.value,
+                    })
+                  }
+                  title={hero.customClass.color}
+                />
+              </Form.Group>
+            </Col>
+            <Col xs={6}>
+              <Form.Group controlId="customBackground">
+                <Form.Label>Background</Form.Label>
+                <Form.Control
+                  type="color"
+                  className="w-100"
+                  value={hero.customClass.background}
+                  onChange={(e) =>
+                    updateCustomClass({
+                      ...(hero.customClass as CustomClass),
+                      background: e.target.value,
+                    })
+                  }
+                  title={hero.customClass.background}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+        </>
+      ) : null}
+
+      {/* Replace actions */}
       <Row className="my-3 text-center g-2">
         <Col xs={12} md={4}>
           <Button
@@ -156,6 +328,7 @@ export default function HeroForm({
         </Col>
       </Row>
 
+      {/* Specialty content tabs */}
       <Tabs
         activeKey={key}
         onSelect={(k) => setKey(k as unknown as SpecialtyLevel)}

@@ -8,6 +8,12 @@ export interface Portrait {
   path: string;
 }
 
+export interface CustomClass {
+  statistics: Statistics;
+  color: string;
+  background: string;
+}
+
 export interface Hero {
   name: string;
   town: TownType;
@@ -17,6 +23,7 @@ export interface Hero {
   ability: Ability;
   specialty: Specialty;
   specialtyContent: SpecialtyContent;
+  customClass?: CustomClass;
 }
 
 // prettier-ignore

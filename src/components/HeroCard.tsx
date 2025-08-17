@@ -87,7 +87,9 @@ export default function HeroCard({
   specialtyLevel: SpecialtyLevel;
 }) {
   const townColor = townColors[hero.town];
-  const bgUrl = useBackground(townColor.background ?? townColor.color);
+  const bgUrl = useBackground(
+    hero.customClass?.background ?? townColor.background ?? townColor.color
+  );
 
   return (
     <div

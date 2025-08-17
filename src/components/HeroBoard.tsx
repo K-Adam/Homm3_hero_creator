@@ -18,8 +18,11 @@ import { useBackground, useBorder } from "@/hooks/background";
 
 export default function HeroBoard({ hero }: { hero: Hero }) {
   const townColor = townColors[hero.town];
-  const bgUrl = useBackground(townColor.background ?? townColor.color);
-  const borderUrl = useBorder(townColor.color);
+  const bgUrl = useBackground(
+    hero.customClass?.background ?? townColor.background ?? townColor.color
+  );
+  const borderUrl = useBorder(hero.customClass?.color ?? townColor.color);
+  const statistics = hero.customClass?.statistics ?? hero.statistics;
 
   return (
     <section
@@ -45,28 +48,28 @@ export default function HeroBoard({ hero }: { hero: Hero }) {
           )}
         </figure>
         <h1>{hero.name}</h1>
-        <h2>{hero.statistics.name}</h2>
+        <h2>{statistics.name}</h2>
       </div>
 
       <div className={clsx(styles.block, styles.stats)}>
         <div className={styles.stat}>
           <img src="images/attack.png" alt="Attack" />
-          <span>{hero.statistics.attack}</span>
+          <span>{statistics.attack}</span>
         </div>
         <div></div>
         <div className={styles.stat}>
           <img src="images/defense.png" alt="Defense" />
-          <span>{hero.statistics.defense}</span>
+          <span>{statistics.defense}</span>
         </div>
         <div></div>
         <div className={styles.stat}>
           <img src="images/power.png" alt="Spell Power" />
-          <span>{hero.statistics.spellPower}</span>
+          <span>{statistics.spellPower}</span>
         </div>
         <div></div>
         <div className={styles.stat}>
           <img src="images/knowledge.png" alt="Knowledge" />
-          <span>{hero.statistics.knowledge}</span>
+          <span>{statistics.knowledge}</span>
         </div>
 
         <div className={styles.abilitySpecialty}>
