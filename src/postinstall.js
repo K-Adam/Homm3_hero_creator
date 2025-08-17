@@ -20,7 +20,7 @@ async function copyLicense() {
   const srcPath = path.resolve(__dirname, "../external/Homm3BG/LICENSE");
   const destPath = path.resolve(__dirname, "../public/credits/Homm3BG_LICENSE");
 
-  await fs.mkdir(path.dirname(destPath));
+  await fs.mkdir(path.dirname(destPath), { recursive: true });
   await fs.copyFile(srcPath, destPath);
 }
 

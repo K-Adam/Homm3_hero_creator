@@ -8,8 +8,8 @@ import { textToComponent, TextToComponentProps } from "@/lib/textToComponent";
 import SpellOptionsIcon from "@/assets/spell_options.svg";
 import ArrowIcon from "@/assets/arrow.svg";
 import EmpowerIcon from "@/assets/glyphs/empower.svg";
-
-// TODO: Spell card icons instead of img
+import { townColors } from "@/models/color";
+import { useBackground } from "@/hooks/background";
 
 const textToComponentProps: TextToComponentProps = {
   renderSpell: (props) => (
@@ -86,13 +86,13 @@ export default function HeroCard({
   hero: Hero;
   specialtyLevel: SpecialtyLevel;
 }) {
+  const townColor = townColors[hero.town];
+  const bgUrl = useBackground(townColor.background ?? townColor.color);
+
   return (
     <div
-      className={clsx(
-        styles.card,
-        hero.town,
-        styles[`specialty${specialtyLevel}`]
-      )}
+      className={clsx(styles.card, styles[`specialty${specialtyLevel}`])}
+      style={{ "--name-background": bgUrl } as React.CSSProperties}
     >
       <div className={clsx(styles.block, styles.content)}>
         <img

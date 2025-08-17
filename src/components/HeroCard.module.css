@@ -93,7 +93,7 @@
   grid-area: 2 / 2 / 3 / 3;
 
   background-image: var(--name-background);
-  background-size: 200%;
+  background-size: 300%;
   background-position: center;
 
   display: flex;
@@ -140,7 +140,7 @@
 
       background-image: url("@/assets/background/gray.png");
       background-position: center;
-      background-size: 300%;
+      background-size: 100%;
 
       display: flex;
       align-items: center;

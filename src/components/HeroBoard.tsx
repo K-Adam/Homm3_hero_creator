@@ -13,10 +13,24 @@ import LevelFour from "@/assets/glyphs/level4.svg";
 import LevelSix from "@/assets/glyphs/level6.svg";
 import ExpertIcon from "@/assets/glyphs/expert.svg";
 import LevelDirectionIcon from "@/assets/glyphsInternal/level_direction.svg";
+import { townColors } from "@/models/color";
+import { useBackground, useBorder } from "@/hooks/background";
 
 export default function HeroBoard({ hero }: { hero: Hero }) {
+  const townColor = townColors[hero.town];
+  const bgUrl = useBackground(townColor.background ?? townColor.color);
+  const borderUrl = useBorder(townColor.color);
+
   return (
-    <section className={clsx(styles.board, hero.town)}>
+    <section
+      className={styles.board}
+      style={
+        {
+          "--name-background": bgUrl,
+          "--border-image": borderUrl,
+        } as React.CSSProperties
+      }
+    >
       <div
         className={clsx(styles.block, styles.portrait)}
         style={{ backgroundImage: `url("${hero.portrait.path}")` }}
