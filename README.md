@@ -1,6 +1,12 @@
-# <center>Heroes of Might and Magic III: The Board Game<br/>Hero Creator</center>
+<div align="center">
+  <h1>Heroes of Might & Magic III: The Board Game<br>Hero Creator</h1>
 
-The application is available at: https://k-adam.github.io/Homm3_hero_creator
+  <p align="center">
+    <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white">
+    <a href="https://discord.gg/nMbawQkj9R"><img src="https://dcbadge.limes.pink/api/server/nMbawQkj9R"></a>
+  </p>
+  <h1><a href="https://k-adam.github.io/Homm3_hero_creator">👉 GO TO THE APP 👈</a></h1>
+</div>
 
 ## About
 
@@ -21,3 +27,11 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### 🛡️ Other Community Projects
+
+- [Rulebook Rewrite Project](https://github.com/Heegu-sama/Homm3BG)
+- [Fan-Made Mission Book](https://github.com/qwrtln/Homm3BG-mission-book)
+- [Board Game Cards Databse](https://github.com/Mirzipan/Homm3_BG_Database)
+- [Factory Rule Book](https://github.com/piotrbruzda/Homm3BG-FactoryRulebook)
+- [Scenario Map Editor](https://github.com/zedero/HoMM3Boardgame)
