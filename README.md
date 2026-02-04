@@ -32,6 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - [Rulebook Rewrite Project](https://github.com/Heegu-sama/Homm3BG)
 - [Fan-Made Mission Book](https://github.com/qwrtln/Homm3BG-mission-book)
-- [Board Game Cards Databse](https://github.com/Mirzipan/Homm3_BG_Database)
+- [Game Wiki](https://github.com/Mirzipan/Homm3_BG_Database)
 - [Factory Rule Book](https://github.com/piotrbruzda/Homm3BG-FactoryRulebook)
 - [Scenario Map Editor](https://github.com/zedero/HoMM3Boardgame)
+- [Music Companion PWA](https://github.com/ExeVirus/h3omm_bgm)
