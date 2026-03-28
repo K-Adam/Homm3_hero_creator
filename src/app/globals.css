@@ -47,6 +47,14 @@ h5 {
 }
 
 @media print {
+  html,
+  body,
+  .page,
+  .page * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
   @page landscape {
     margin: 12mm;
   }
