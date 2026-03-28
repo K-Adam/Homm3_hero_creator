@@ -110,12 +110,16 @@ export async function generateBackground(color: string): Promise<string> {
 
   ctx.putImageData(imageData, 0, 0);
 
-  const blob = await canvasToBlob(canvas, "image/png");
-  return URL.createObjectURL(blob);
+  if ("WebkitAppearance" in document.documentElement.style) {
+    return canvas.toDataURL("image/jpeg", 0.9);
+  } else {
+    const blob = await canvasToBlob(canvas, "image/png");
+    return URL.createObjectURL(blob);
+  }
 }
 
 export async function renderBorderWithShadow(
-  borderColor: string
+  borderColor: string,
 ): Promise<string> {
   const img = await loadImage(Border.src);
 
@@ -136,7 +140,7 @@ export async function renderBorderWithShadow(
     inset,
     inset,
     canvas.width - lineWidth,
-    canvas.height - lineWidth
+    canvas.height - lineWidth,
   );
   ctx.restore();
 
@@ -173,12 +177,15 @@ export async function renderBorderWithShadow(
   ctx.shadowOffsetY = 0;
   ctx.drawImage(img, 0, 0);
 
-  const blob = await new Promise<Blob>((resolve, reject) =>
-    canvas.toBlob(
-      (b) => (b ? resolve(b) : reject(new Error("toBlob failed"))),
-      "image/png"
-    )
-  );
-
-  return URL.createObjectURL(blob);
+  if ("WebkitAppearance" in document.documentElement.style) {
+    return canvas.toDataURL("image/webp");
+  } else {
+    const blob = await new Promise<Blob>((resolve, reject) =>
+      canvas.toBlob(
+        (b) => (b ? resolve(b) : reject(new Error("toBlob failed"))),
+        "image/png",
+      ),
+    );
+    return URL.createObjectURL(blob);
+  }
 }
